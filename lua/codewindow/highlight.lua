@@ -3,7 +3,6 @@ local M = {}
 local config = require("codewindow.config").get()
 local utils = require("codewindow.utils")
 local highlighter
-local ts_utils
 
 local hl_namespace
 local screenbounds_namespace
@@ -123,7 +122,6 @@ end
 
 if config.use_treesitter then
   highlighter = require("vim.treesitter.highlighter")
-  ts_utils = require("nvim-treesitter.ts_utils")
   M.extract_highlighting = extract_highlighting
 else
   M.extract_highlighting = function() end
