@@ -99,8 +99,7 @@ local function extract_highlighting(buffer, lines)
       if hl then
         local c = query._query.captures[capture]
         if c ~= nil then
-          local start_row, start_col, end_row, end_col =
-            ts_utils.get_vim_range({ vim.treesitter.get_node_range(node) }, buffer)
+          local start_row, start_col, end_row, end_col = node:range()
 
           for y = start_row, end_row do
             for x = start_col, math.min(end_col, minimap_char_width) do
